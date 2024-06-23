@@ -45,4 +45,4 @@ def fetch_director(obj):
 
 movies['crew'] = movies['crew'].apply(fetch_director)
 
-print(movies['crew'])
+movies['overview'] = movies['overview'].apply(lambda x:x.split())
