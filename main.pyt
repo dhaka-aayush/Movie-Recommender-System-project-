@@ -54,4 +54,4 @@ movies['cast'] = movies['cast'].apply(lambda x:[i.replace(" ","") for i in x])
 
 movies['tags'] = movies['overview'] + movies['keywords'] + movies['genres'] + movies['crew'] + movies['cast']
 
-print(movies['tags'])
+new_movie_df = movies[['id' , 'title' , 'tags']]
