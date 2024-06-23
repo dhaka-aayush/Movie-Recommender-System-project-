@@ -55,3 +55,7 @@ movies['cast'] = movies['cast'].apply(lambda x:[i.replace(" ","") for i in x])
 movies['tags'] = movies['overview'] + movies['keywords'] + movies['genres'] + movies['crew'] + movies['cast']
 
 new_movie_df = movies[['id' , 'title' , 'tags']]
+
+new_movie_df['tags'] = new_movie_df['tags'].apply(lambda x:" ".join(x))
+
+new_movie_df['tags'] = new_movie_df['tags'].apply(lambda x:x.lower())
