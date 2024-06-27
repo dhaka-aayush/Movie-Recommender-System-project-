@@ -59,3 +59,6 @@ new_movie_df = movies[['id' , 'title' , 'tags']]
 new_movie_df['tags'] = new_movie_df['tags'].apply(lambda x:" ".join(x))
 
 new_movie_df['tags'] = new_movie_df['tags'].apply(lambda x:x.lower())
+
+cv = CountVectorizer(max_features=5000,stop_words='english')
+vectors = cv.fit_transform(new_movie_df['tags']).toarray()
