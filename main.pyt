@@ -66,3 +66,12 @@ new_movie_df['tags'] = new_movie_df['tags'].apply(lambda x:x.lower())
 
 cv = CountVectorizer(max_features=5000,stop_words='english')
 vectors = cv.fit_transform(new_movie_df['tags']).toarray()
+
+def stem(item):
+    y = []
+    for i in item.split():
+        y.append(ps.stem(i))
+
+    return " ".join(y)
+
+new_movie_df['tags'] = new_movie_df['tags'].apply(stem)
