@@ -2,6 +2,10 @@ import numpy as np
 import pandas as pd
 import ast
 from sklearn.feature_extraction.text import CountVectorizer
+import nltk
+from nltk.stem.porter import PorterStemmer
+ps = PorterStemmer()
+
 movies = pd.read_csv('tmdb_5000_movies.csv')
 credits = pd.read_csv('tmdb_5000_credits.csv')
 movies = movies.merge(credits,on='title')
