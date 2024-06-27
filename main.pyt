@@ -85,4 +85,6 @@ def recommend(movie):
     movie_list = sorted(list(enumerate(distance)), reverse=True , key = lambda x:x[1])[1:6]
 
     for i in movie_list:
-        print(i[0])
+        print(new_movie_df.iloc[i[0]].title)
+
+recommend('Avatar')
