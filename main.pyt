@@ -4,6 +4,7 @@ import ast
 from sklearn.feature_extraction.text import CountVectorizer
 import nltk
 from nltk.stem.porter import PorterStemmer
+from sklearn.metrics.pairwise import cosine_similarity
 ps = PorterStemmer()
 
 movies = pd.read_csv('tmdb_5000_movies.csv')
@@ -75,3 +76,5 @@ def stem(item):
     return " ".join(y)
 
 new_movie_df['tags'] = new_movie_df['tags'].apply(stem)
+
+similarity = cosine_similarity(vectors)
