@@ -78,3 +78,11 @@ def stem(item):
 new_movie_df['tags'] = new_movie_df['tags'].apply(stem)
 
 similarity = cosine_similarity(vectors)
+
+def recommend(movie):
+    movie_index = new_movie_df[new_movie_df['title'] == movie].index[0]
+    distance = similarity[movie_index]
+    movie_list = sorted(list(enumerate(distance)), reverse=True , key = lambda x:x[1])[1:6]
+
+    for i in movie_list:
+        print(i[0])
