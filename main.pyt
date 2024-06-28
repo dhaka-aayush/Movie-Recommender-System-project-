@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import pickle
 import ast
 from sklearn.feature_extraction.text import CountVectorizer
 import nltk
@@ -87,4 +88,4 @@ def recommend(movie):
     for i in movie_list:
         print(new_movie_df.iloc[i[0]].title)
 
-recommend('Avatar')
+pickle.dump(new_movie_df.to_dict(),open('movies_dict.pkl','wb'))
